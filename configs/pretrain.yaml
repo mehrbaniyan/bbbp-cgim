@@ -1,0 +1,49 @@
+dataset: pubchem50k
+
+sample_size: 10000
+sample_seed: 42
+
+pseudo_labels:
+  clusters: [10, 100]
+  random_state: 42
+
+regression_target:
+  fingerprint_bits: 2048
+  radius: 2
+  components: 64
+  n_iter: 10
+  random_state: 0
+  standardize: true
+
+split:
+  name: scaffold
+  train: 0.8
+  valid: 0.2
+  test: 0.0
+  seed: null
+
+loader:
+  batch_size: 64
+  num_workers: 0
+  train_shuffle: true
+  valid_shuffle: true
+
+model:
+  embedding_dim: 512
+  image_channels: 3
+  regression_dim: 64
+  pretrained_backbone: true
+
+training:
+  epochs: 100
+  learning_rate: 0.001
+  scheduler_factor: 0.5
+  scheduler_patience: 3
+  early_stopping_patience: 10
+  gradient_clip: 0.1
+  contrastive_loss: dclw
+  temperature: 0.1
+  sigma: 0.5
+  best_encoder: checkpoints/best_3bpgim.pth
+  last_checkpoint: checkpoints/last_pretrain_checkpoint.pth
+

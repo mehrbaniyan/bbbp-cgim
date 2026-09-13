@@ -1,0 +1,13 @@
+dataset: b3db
+seed: 43
+pretrained_encoder: checkpoints/best_3bpgim.pth
+best_checkpoint: checkpoints/b3db_best.pth
+last_checkpoint: checkpoints/b3db_last.pth
+epochs: 500
+learning_rate: 0.0001
+scheduler_factor: 0.5
+scheduler_patience: 3
+early_stopping_patience: 5
+gradient_clip: 0.1
+num_classes: 1
+

@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+build/
+dist/
+
+# Generated data and training artifacts
+data/raw/*
+data/processed/*
+data/images/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/images/.gitkeep
+checkpoints/*
+!checkpoints/.gitkeep
+outputs/*
+!outputs/.gitkeep
+*.pth
+*.pt
+*.ckpt
+temp_mol.sdf
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+

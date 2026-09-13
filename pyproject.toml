@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bbbp-cgim"
+version = "0.1.0"
+description = "Contrastive Geometry Image Modeling for blood-brain barrier permeability prediction"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  {name = "Abbas Mehrbaniyan"},
+  {name = "Eghbal Mansoori"},
+  {name = "Reza Tahmasebi"},
+  {name = "Armin Pishehvar"},
+]
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "Pillow>=9.5",
+  "PyYAML>=6",
+  "matplotlib>=3.8",
+  "scikit-learn>=1.3",
+  "scipy>=1.10",
+  "torch>=2.1",
+  "torchmetrics>=1.2",
+  "torchvision>=0.16",
+  "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+render = ["rdkit>=2023.9", "pymol-open-source>=3.0"]
+plots = ["grad-cam>=1.5"]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+

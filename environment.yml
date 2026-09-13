@@ -1,0 +1,22 @@
+name: bbbp-cgim
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy=2.2
+  - pandas=2.2
+  - pillow=9.5
+  - matplotlib=3.10
+  - pyyaml=6.0
+  - scikit-learn=1.7
+  - scipy=1.13
+  - tqdm=4.67
+  - rdkit>=2023.9
+  - pymol-open-source>=3.0
+  - pip:
+      - torch==2.6.0
+      - torchvision==0.21.0
+      - torchmetrics==1.6.1
+      - grad-cam==1.5.5
+

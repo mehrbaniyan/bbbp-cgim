@@ -1,0 +1,56 @@
+defaults:
+  image_root: data/images
+  image_size: [224, 224]
+  num_views: 120
+  n_conformers: 5
+
+datasets:
+  pubchem50k:
+    stage: pretrain
+    raw_csv: data/raw/pubchem_50k.csv
+    processed_csv: data/processed/pubchem_50k_processed.csv
+    dataset_name: pubchem50k
+    smiles_column: smiles
+
+  bbbp:
+    stage: downstream
+    raw_csv: data/raw/bbbp.csv
+    processed_csv: data/processed/bbbp_processed.csv
+    dataset_name: bbbp
+    smiles_column: smiles
+    label_column: p_np
+    drop_duplicate_smiles: false
+    fingerprint: full_ecfp_pca
+    feature_dim: 16
+    split: scaffold
+    split_seed: 46
+    batch_size: 64
+
+  lightbbb:
+    stage: downstream
+    raw_csv: data/raw/LightBBB.csv
+    processed_csv: data/processed/LightBBB_processed.csv
+    dataset_name: lightbbb
+    smiles_column: smiles
+    label_column: BBclass
+    drop_duplicate_smiles: false
+    fingerprint: maccs_pca
+    feature_dim: 16
+    split: scaffold
+    split_seed: null
+    batch_size: 64
+
+  b3db:
+    stage: downstream
+    raw_csv: data/raw/B3DB_classification.csv
+    processed_csv: data/processed/B3DB_classification_processed.csv
+    dataset_name: b3db
+    smiles_column: smiles
+    label_column: label
+    drop_duplicate_smiles: true
+    fingerprint: maccs_pca
+    feature_dim: 16
+    split: scaffold
+    split_seed: null
+    batch_size: 64
+
