@@ -24,7 +24,7 @@ Paper: **Soon**
 
 ## News!
 
-- **Soon** — The paper, processed datasets, split indices, and pretrained checkpoint will be released after publication.
+- **GitHub repository initialized** — The datasets and pretrained checkpoints are currently being uploaded and will be publicly accessible after acceptance of the publication.
 
 ## Environment setup
 
@@ -76,9 +76,9 @@ If CUDA is expected but reported as unavailable, install a PyTorch build compati
 | Name | Download link | Description |
 | --- | --- | --- |
 | PubChem 50K | **Soon** | Pretraining CSV and rendered molecular images. Extract the files into `data/`. |
-| MoleculeNet BBBP | **Soon** | Processed BBBP data and split information. Extract the files into `data/`. |
-| LightBBB | **Soon** | Processed LightBBB data and split information. Extract the files into `data/`. |
-| B3DB | **Soon** | Processed B3DB data and split information. Extract the files into `data/`. |
+| MoleculeNet BBBP | **[Zenodo](https://zenodo.org/records/22785265)** | Processed BBBP data and split information. Extract the files into `data/`. |
+| LightBBB | **[Zenodo](https://zenodo.org/records/22785602)** | Processed LightBBB data and split information. Extract the files into `data/`. |
+| B3DB | **[Zenodo](https://zenodo.org/records/22785971)** | Processed B3DB data and split information. Extract the files into `data/`. |
 
 ### Pretrained checkpoint
 
@@ -86,19 +86,13 @@ If CUDA is expected but reported as unavailable, install a PyTorch build compati
 
 | Name | Download link | Description |
 | --- | --- | --- |
-| `best_3bpgim.pth` | **Soon** | Download the encoder and place it in `checkpoints/`. |
+| `best_3bpgim.pth` | **[Zenodo](https://zenodo.org/records/22785141)** | Download the encoder and place it in `checkpoints/`. |
 
-### Fine-tuned checkpoints
+### Notes
+**Datasets, split indices, and pretrained checkpoints will be publicly accessible after publication of the article.**
 
-🔥 Fine-tuned checkpoints for the three evaluation datasets will also be provided.
+The processed PubChem50K dataset will be uploaded soon. Due to its large size and limited upload speeds, this may take some time. Thank you for your patience. In the meantime, the dataset generation scripts are available in this repository, allowing you to generate the dataset locally.
 
-| Name | Download link | Description |
-| --- | --- | --- |
-| MoleculeNet BBBP | **Soon** | Place `bbbp_best.pth` in `checkpoints/`. |
-| LightBBB | **Soon** | Place `lightbbb_best.pth` in `checkpoints/`. |
-| B3DB | **Soon** | Place `b3db_best.pth` in `checkpoints/`. |
-
-<sub>Datasets, split indices, and pretrained checkpoints will be released after publication of the article.</sub>
 
 The default dataset locations and required columns are:
 
