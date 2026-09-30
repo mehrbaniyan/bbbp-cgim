@@ -25,10 +25,10 @@ def finetune_model_bce(
     checkpoint_path: str = None,
     disable_progress: bool = False,
     seed: int = 42,
-    learning_rate: float = 1e-4,
+    learning_rate: float = 1e-3,
     scheduler_factor: float = 0.5,
     scheduler_patience: int = 3,
-    early_stopping_patience: int = 5,
+    early_stopping_patience: int = 10,
     gradient_clip: float = 0.1,
 ):
     """Fine-tune a single-logit classifier with BCE loss."""

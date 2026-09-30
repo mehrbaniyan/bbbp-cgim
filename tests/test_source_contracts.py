@@ -21,9 +21,9 @@ def test_dataset_generation_contract():
 
 def test_pretrain_parameter_contract():
     config = yaml.safe_load(read("configs/pretrain.yaml"))
-    assert config["sample_size"] == 10000
+    assert config["sample_size"] == 50000
     assert config["sample_seed"] == 42
-    assert config["pseudo_labels"]["clusters"] == [10, 100]
+    assert config["pseudo_labels"]["clusters"] == [100, 1000]
     assert config["regression_target"]["components"] == 64
     assert config["loader"]["batch_size"] == 64
     assert config["training"]["learning_rate"] == 0.001
@@ -37,10 +37,10 @@ def test_finetune_parameter_contract():
         config = yaml.safe_load(read(f"configs/finetune_{name}.yaml"))
         assert config["seed"] == 43
         assert config["epochs"] == 500
-        assert config["learning_rate"] == 0.0001
+        assert config["learning_rate"] == 0.001
         assert config["scheduler_factor"] == 0.5
         assert config["scheduler_patience"] == 3
-        assert config["early_stopping_patience"] == 5
+        assert config["early_stopping_patience"] == 10
         assert config["gradient_clip"] == 0.1
 
 

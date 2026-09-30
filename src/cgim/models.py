@@ -51,12 +51,12 @@ class SimCLRNetWithHead(nn.Module):
 
 class SimCLRNetWithHeadPre(nn.Module):
     def __init__(self, embedding_dim=128, img_channels=3, regression_dim=64,
-                 pretrained_backbone=True):
+                 clusters=(100, 1000), pretrained_backbone=True):
         super().__init__()
         resnet = _resnet18(pretrained_backbone)
         self.encoder = nn.Sequential(*list(resnet.children())[:-1], nn.Flatten())
-        self.classifier1 = nn.Sequential(nn.Linear(embedding_dim, 10))
-        self.classifier2 = nn.Sequential(nn.Linear(embedding_dim, 100))
+        self.classifier1 = nn.Sequential(nn.Linear(embedding_dim, clusters[0]))
+        self.classifier2 = nn.Sequential(nn.Linear(embedding_dim, clusters[1]))
         self.decoder = nn.Sequential(
             nn.Linear(embedding_dim, 256 * 7 * 7),
             nn.Unflatten(1, (256, 7, 7)),

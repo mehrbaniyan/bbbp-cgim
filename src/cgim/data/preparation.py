@@ -110,9 +110,9 @@ def prepare_downstream_frame(
 def prepare_pretrain_frame(
     csv_path,
     smiles_column="smiles",
-    sample_size=10000,
+    sample_size=50000,
     sample_seed=42,
-    clusters=(10, 100),
+    clusters=(100, 1000),
     cluster_seed=42,
     fingerprint_bits=2048,
     radius=2,

@@ -138,6 +138,7 @@ def run_pretraining(
             if gradient_clip is not None
             else training.get("gradient_clip", 0.1)
         ),
+        clusters=tuple(experiment.get("pseudo_labels", {}).get("clusters", (100, 1000))),
     )
 
 

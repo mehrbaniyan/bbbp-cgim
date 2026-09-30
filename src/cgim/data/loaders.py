@@ -84,9 +84,9 @@ def build_pretrain_loaders(dataset_config, experiment_config, *, processed_csv=N
     df, svd, scaler = prepare_pretrain_frame(
         csv_path,
         smiles_column=dataset_config["smiles_column"],
-        sample_size=experiment_config.get("sample_size", 10000),
+        sample_size=experiment_config.get("sample_size", 50000),
         sample_seed=experiment_config.get("sample_seed", 42),
-        clusters=tuple(pseudo.get("clusters", (10, 100))),
+        clusters=tuple(pseudo.get("clusters", (100, 1000))),
         cluster_seed=pseudo.get("random_state", 42),
         fingerprint_bits=regression.get("fingerprint_bits", 2048),
         radius=regression.get("radius", 2),
@@ -98,14 +98,14 @@ def build_pretrain_loaders(dataset_config, experiment_config, *, processed_csv=N
         df, experiment_config, dataset_config["smiles_column"]
     )
     transform = default_transform(tuple(dataset_config.get("image_size", (224, 224))))
-    clusters = pseudo.get("clusters", [10, 100])
-    if list(clusters) != [10, 100]:
-        raise ValueError("The model heads require pseudo-label clusters [10, 100].")
+    clusters = list(pseudo.get("clusters", [100, 1000]))
+    if len(clusters) != 2:
+        raise ValueError("The model heads require two pseudo-label cluster sizes.")
 
     common = dict(
         transform=transform,
-        label_column1="cluster_10",
-        label_column2="cluster_100",
+        label_column1=f"cluster_{clusters[0]}",
+        label_column2=f"cluster_{clusters[1]}",
         smiles_column=dataset_config["smiles_column"],
         svd_components=svd,
         scaffold_svd_dim=regression.get("components", 64),

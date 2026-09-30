@@ -139,6 +139,7 @@ def train_model(
     scheduler_patience=3,
     early_stopping_patience=10,
     gradient_clip=0.1,
+    clusters=(100, 1000),
 ):
     """Pretrain using only train/validation self-supervised objective loss."""
     if early_stopping_patience < 1:
@@ -146,6 +147,7 @@ def train_model(
     model = SimCLRNetWithHeadPre(
         embedding_dim=embedding_dim,
         regression_dim=regression_dim,
+        clusters=clusters,
         pretrained_backbone=pretrained_backbone,
     ).to(device)
 

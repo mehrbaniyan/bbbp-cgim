@@ -114,10 +114,10 @@ def run_finetuning(
             str(training_checkpoint_path) if training_checkpoint_path else None
         ),
         seed=my_seed,
-        learning_rate=(learning_rate if learning_rate is not None else experiment.get("learning_rate", 0.0001)),
+        learning_rate=(learning_rate if learning_rate is not None else experiment.get("learning_rate", 0.001)),
         scheduler_factor=(scheduler_factor if scheduler_factor is not None else experiment.get("scheduler_factor", 0.5)),
         scheduler_patience=(scheduler_patience if scheduler_patience is not None else experiment.get("scheduler_patience", 3)),
-        early_stopping_patience=(patience if patience is not None else experiment.get("early_stopping_patience", 5)),
+        early_stopping_patience=(patience if patience is not None else experiment.get("early_stopping_patience", 10)),
         gradient_clip=(gradient_clip if gradient_clip is not None else experiment.get("gradient_clip", 0.1)),
     )
     return model, test_loader, best_auc
